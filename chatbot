@@ -1,0 +1,49 @@
+import nltk
+from nltk.chat.util import Chat, reflections
+
+pairs = [
+    [r"my name is (.*)", ["Hello %1, how are you today?"]],
+    [r"hi|hey|hello", ["Hello!", "Hey there!", "Hi :)"]],
+    [r"what is your name ?", ["I am a bot created by Karthik. You can call me Grieve!"]],
+    [r"how are you ?", ["I'm doing good. How about you?"]],
+    [r"sorry (.*)", ["It's alright.", "No worries!", "It's OK, never mind."]],
+    [r"I am fine", ["Great to hear that! How can I help you?"]],
+    [r"i'm (.*) doing good", ["Nice to hear that!", "How can I help you? :)"]],
+    [r"(.*) age?", ["I'm a computer program. I don't age like humans."]],
+    [r"what (.*) want ?", ["Make me an offer I can't refuse."]],
+    [r"(.*) created ?", ["Karthik created me using Python's NLTK library.", "Top secret ;)"]],
+    [r"(.*) (location|city) ?", ["Visakhapatnam, Andhra Pradesh."]],
+    [r"how is weather in (.*)?", ["Weather in %1 is pleasant as always!", "It's quite hot here in %1.", "It's cold here in %1."]],
+    [r"i work in (.*)?", ["%1 is a great company!"]],
+    [r"(.*) raining in (.*)", ["No rain here in %2.", "It's raining heavily in %2."]],
+    [r"how (.*) health(.*)", ["I'm always healthy, thanks to electricity!"]],
+    [r"(.*) (sports|game) ?", ["I'm a big fan of football and cricket!"]],
+    [r"who (.*) (moviestar|actor)?", ["Pawan Kalyan!", "Allu Arjun is trending now."]],
+    [r"what is AI?", ["AI stands for Artificial Intelligence – machines that mimic human intelligence."]],
+    [r"who is your creator?", ["I was built by Karthik, an awesome developer!"]],
+    [r"what is your purpose?", ["I'm here to chat with you and help in any way I can."]],
+    [r"do you love me?", ["As much as a bot can :)"]],
+    [r"what is machine learning?", ["Machine Learning is a subset of AI where machines learn from data."]],
+    [r"tell me a joke", ["Why don't robots get scared? Because they have nerves of steel!"]],
+    [r"motivate me", ["You are capable of amazing things!", "Believe in yourself, you've got this."]],
+    [r"how to learn python?", ["Start with basics at W3Schools, freeCodeCamp, or try some YouTube tutorials."]],
+    [r"who is Elon Musk?", ["Elon Musk is the CEO of SpaceX and Tesla, and a tech innovator."]],
+    [r"what is your favorite food?", ["Electricity is my favorite!"]],
+    [r"can you help me?", ["Of course! What do you need help with?"]],
+    [r"how old are you?", ["I'm ageless, but coded in the 21st century."]],
+    [r"how to become a programmer?", ["Practice coding daily, solve problems, and build projects!"]],
+    [r"are you human?", ["Nope, I'm 100% chatbot."]],
+    [r"how many languages do you speak?", ["Right now, just English."]],
+    [r"open google", ["I'm not a browser, but you can just say 'Hey Google!'"]],
+    [r"what is your favorite movie?", ["I like The Matrix. Feels relatable."]],
+    [r"what is your favorite color?", ["Binary... black and white :)"]],
+    [r"quit", ["Bye! Take care.", "See you soon! It was nice chatting."]],
+]
+
+def chat():
+    print("Hi! I am a chatbot. Type 'quit' to exit.")
+    chat = Chat(pairs, reflections)
+    chat.converse()
+
+if __name__ == "__main__":
+    chat()
